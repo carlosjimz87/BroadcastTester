@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.os.Parcelable
 import java.io.Serializable
 
-object Broadcaster {
+object BroadcastFactory {
 
-    /** Send a new created Intent with given @param action, @param flag and @param extras. */
-    fun <T> sendIntent(
-        context: Context,
+    fun <T> build(
         action: String,
         flag: Int? = null,
         extras: Map<String, T> = emptyMap()
@@ -19,30 +17,13 @@ object Broadcaster {
             this.action = action
             this.flags = flag ?: 0
             putExtras(this, extras)
-            context.sendBroadcast(this)
         }
     }
 
-    fun sendIntent(
-        context: Context,
-        action: String,
-        flag: Int? = null
-    ): Intent {
-        return Intent().apply {
-            this.action = action
-            this.flags = flag ?: 0
-            context.sendBroadcast(this)
-        }
-    }
-
-    fun sendIntent(
-        context: Context,
-        action: String
+    fun Intent.send(
+        context: Context
     ) {
-        Intent ().apply {
-            this.action = action
             context.sendBroadcast(this)
-        }
     }
 
     private fun <T> putExtras(intent: Intent, extras: Map<String, T>?) {
