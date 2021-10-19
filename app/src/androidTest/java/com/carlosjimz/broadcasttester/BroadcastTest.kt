@@ -12,7 +12,6 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastFactory
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastJavaCreator
 import com.carlosjimz.broadcasttester.utils.extraAssertions
-import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -50,13 +49,13 @@ class BroadcastTest {
         LocalBroadcastManager.getInstance(context).registerReceiver(
             receiver,
             IntentFilter.create(
-                Constants.ACTION,"text/plain"
+                Constants.ACTION, "text/plain"
             )
         )
     }
 
     @After
-    fun tearDown(){
+    fun tearDown() {
         LocalBroadcastManager.getInstance(context).unregisterReceiver(receiver)
     }
 
