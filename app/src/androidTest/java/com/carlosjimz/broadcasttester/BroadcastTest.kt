@@ -15,7 +15,6 @@ import com.carlosjimz.broadcasttester.utils.extraAssertions
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.concurrent.CountDownLatch
@@ -59,10 +58,10 @@ class BroadcastTest {
         latch = CountDownLatch(1)
         receiver = BroadcastReceiverTester()
 
-        LocalBroadcastManager.getInstance(context).registerReceiver(
+        context.registerReceiver(
             receiver,
-            IntentFilter.create(
-                Constants.ACTION, "text/plain"
+            IntentFilter(
+                Constants.ACTION
             )
         )
 
@@ -95,7 +94,6 @@ class BroadcastTest {
     }
 
     @Test
-    @Ignore
     fun testJavaBroadcastReception() {
         BroadcastJavaCreator().sendIntent(context)
 
@@ -105,7 +103,6 @@ class BroadcastTest {
     }
 
     @Test
-    @Ignore
     fun testKtBroadcastReception() {
         BroadcastFactory
             .build(Constants.ACTION, Constants.FLAG, extras)
