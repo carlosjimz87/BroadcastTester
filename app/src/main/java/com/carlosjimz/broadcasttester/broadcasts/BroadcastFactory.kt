@@ -1,4 +1,4 @@
-package com.carlosjimz.broadcasttester
+package com.carlosjimz.broadcasttester.broadcasts
 
 import android.content.Context
 import android.content.Intent

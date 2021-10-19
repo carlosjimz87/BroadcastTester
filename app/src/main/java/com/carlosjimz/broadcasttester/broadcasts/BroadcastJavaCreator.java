@@ -1,7 +1,9 @@
-package com.carlosjimz.broadcasttester;
+package com.carlosjimz.broadcasttester.broadcasts;
 
 import android.content.Context;
 import android.content.Intent;
+
+import com.carlosjimz.broadcasttester.Constants;
 
 public class BroadcastJavaCreator {
     Intent sendIntent(Context context)  {
