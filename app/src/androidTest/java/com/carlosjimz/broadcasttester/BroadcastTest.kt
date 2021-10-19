@@ -7,7 +7,7 @@ import android.content.IntentFilter
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.ext.truth.content.IntentSubject
-import androidx.test.filters.LargeTest
+import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastFactory
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastJavaCreator
@@ -19,7 +19,7 @@ import org.junit.runner.RunWith
 import java.util.concurrent.CountDownLatch
 
 @RunWith(AndroidJUnit4::class)
-@LargeTest
+@SmallTest
 class BroadcastTest {
 
     lateinit var intents: MutableList<Intent>
@@ -52,6 +52,7 @@ class BroadcastTest {
                 Constants.ACTION, "text/plain"
             )
         )
+
     }
 
     @After
