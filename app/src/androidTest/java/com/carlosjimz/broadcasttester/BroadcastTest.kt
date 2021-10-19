@@ -31,7 +31,7 @@ class BroadcastTest {
 
     private lateinit var receiver: BroadcastReceiverTester
 
-    val extras = mapOf(
+    private val extras = mapOf(
         Constants.ExtraBoolean,
         Constants.ExtraString,
         Constants.ExtraInt,
