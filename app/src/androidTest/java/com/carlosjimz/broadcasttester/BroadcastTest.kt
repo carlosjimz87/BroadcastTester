@@ -72,7 +72,7 @@ class BroadcastTest {
         // assert extras
         extraAssertions(intent)
 
-        // assert broadcast was received
+        // assert broadcast reception (NOT WORKING)
 //        latch.await(10,TimeUnit.SECONDS)
 //        assertThat(intents.size).isEqualTo(1)
     }
@@ -90,8 +90,7 @@ class BroadcastTest {
                 Constants.ExtraChar,
                 Constants.ExtraLong,
             )
-        )
-        intent.send(context)
+        ).send(context)
 
         // assert intent creation
         IntentSubject.assertThat(intent).hasAction(Constants.ACTION)
@@ -100,7 +99,7 @@ class BroadcastTest {
         // assert extras
         extraAssertions(intent)
 
-        // assert broadcast was received
+        // assert broadcast reception (NOT WORKING)
 //        latch.await(10,TimeUnit.SECONDS)
 //        assertThat(intents.size).isEqualTo(1)
     }

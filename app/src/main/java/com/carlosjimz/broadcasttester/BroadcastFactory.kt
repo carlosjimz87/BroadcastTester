@@ -8,22 +8,26 @@ import java.io.Serializable
 
 object BroadcastFactory {
 
+    private lateinit var intent: Intent
+
     fun <T> build(
         action: String,
         flag: Int? = null,
         extras: Map<String, T> = emptyMap()
-    ): Intent {
-        return Intent().apply {
+    ): BroadcastFactory {
+        intent = Intent().apply {
             this.action = action
             this.flags = flag ?: 0
             putExtras(this, extras)
         }
+        return this
     }
 
-    fun Intent.send(
+    fun send(
         context: Context
-    ) {
-            context.sendBroadcast(this)
+    ): Intent {
+        context.sendBroadcast(intent)
+        return intent
     }
 
     private fun <T> putExtras(intent: Intent, extras: Map<String, T>?) {
