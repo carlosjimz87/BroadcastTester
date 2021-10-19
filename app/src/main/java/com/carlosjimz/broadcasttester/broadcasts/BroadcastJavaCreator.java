@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.carlosjimz.broadcasttester.Constants;
 
 public class BroadcastJavaCreator {
-    Intent sendIntent(Context context)  {
+    public Intent sendIntent(Context context)  {
 
         Intent intent = new Intent();
         intent.setAction(Constants.ACTION);
