@@ -12,11 +12,13 @@ import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastFactory
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastJavaCreator
 import com.carlosjimz.broadcasttester.utils.extraAssertions
+import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
 @SmallTest
@@ -74,8 +76,8 @@ class BroadcastTest {
         extraAssertions(intent)
 
         // assert broadcast reception (NOT WORKING)
-//        latch.await(10,TimeUnit.SECONDS)
-//        assertThat(intents.size).isEqualTo(1)
+        latch.await(10,TimeUnit.SECONDS)
+        assertThat(intents.size).isEqualTo(1)
     }
 
     @Test
@@ -101,8 +103,8 @@ class BroadcastTest {
         extraAssertions(intent)
 
         // assert broadcast reception (NOT WORKING)
-//        latch.await(10,TimeUnit.SECONDS)
-//        assertThat(intents.size).isEqualTo(1)
+        latch.await(10, TimeUnit.SECONDS)
+        assertThat(intents.size).isEqualTo(1)
     }
 
 }
