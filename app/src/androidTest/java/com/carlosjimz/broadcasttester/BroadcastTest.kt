@@ -11,6 +11,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastFactory
 import com.carlosjimz.broadcasttester.broadcasts.BroadcastJavaCreator
+import com.carlosjimz.broadcasttester.utils.extraAssertions
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
@@ -102,37 +103,6 @@ class BroadcastTest {
         // assert broadcast reception (NOT WORKING)
 //        latch.await(10,TimeUnit.SECONDS)
 //        assertThat(intents.size).isEqualTo(1)
-    }
-
-
-    private fun extraAssertions(intent: Intent) {
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraBoolean.first)
-        val extraBool = intent.getBooleanExtra(Constants.ExtraBoolean.first, false)
-        assertThat(extraBool).isEqualTo(Constants.ExtraBoolean.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraString.first)
-        val extraString = intent.getStringExtra(Constants.ExtraString.first)
-        assertThat(extraString).isEqualTo(Constants.ExtraString.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraInt.first)
-        val extraInt = intent.getIntExtra(Constants.ExtraInt.first, 0)
-        assertThat(extraInt).isEqualTo(Constants.ExtraInt.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraFloat.first)
-        val extraFloat = intent.getFloatExtra(Constants.ExtraFloat.first, 0f)
-        assertThat(extraFloat).isEqualTo(Constants.ExtraFloat.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraDouble.first)
-        val extraDouble = intent.getDoubleExtra(Constants.ExtraDouble.first, 0.0)
-        assertThat(extraDouble).isEqualTo(Constants.ExtraDouble.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraChar.first)
-        val extraChar = intent.getCharExtra(Constants.ExtraChar.first, '_')
-        assertThat(extraChar).isEqualTo(Constants.ExtraChar.second)
-
-        IntentSubject.assertThat(intent).extras().containsKey(Constants.ExtraLong.first)
-        val extraLong = intent.getLongExtra(Constants.ExtraLong.first, 0)
-        assertThat(extraLong).isEqualTo(Constants.ExtraLong.second)
     }
 
 }
